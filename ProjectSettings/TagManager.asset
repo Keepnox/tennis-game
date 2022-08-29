@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Raket
   - Ball
+  - BlueCube
+  - RaketRed
+  - RaketBlue
+  - ScoreTag
   layers:
   - Default
   - TransparentFX

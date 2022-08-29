@@ -5,39 +5,40 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    public int targetPower;
     private int selectColor;
-    public MeshRenderer cubeMesh;
-    public MeshRenderer ballColor;
-    public Rigidbody ballRigid;
+    private MeshRenderer cubeMesh;
+    private MeshRenderer ballColor;
+    private Rigidbody ballRigid;
     public int jumpSpeed;
+    
     // Start is called before the first frame update
     void Awake()
     {
-        //targetPower = Random.Range(1, 4);
-        targetPower = 8;
-        selectColor = Random.Range(0, 2);
-        //cubeMesh.material.color = selectColor == 0 ? Color.red : Color.blue;
-        cubeMesh.material.color = Color.red;
+        print("NEW CUBE INSTIANTE");
+        ballRigid = GameObject.Find("Ball").GetComponent<Rigidbody>(); 
+        cubeMesh = GameObject.Find("CubeMesh").GetComponent<MeshRenderer>();
+        ballColor = GameObject.Find("Ball").GetComponent<MeshRenderer>();
+        selectColor = Random.Range(0, 1);
+        ballColor.material.color = Color.red;
+        cubeMesh.material.color = selectColor == 0 ? Color.red : Color.blue;
     }
 
     
     
     private void OnTriggerEnter(Collider other)
     {
-        
-
         if (other.tag.ToString() == "Ball")
         {
             if (ballColor.material.color == cubeMesh.material.color)
             {
-                targetPower -= 1;
+                GameManager.decreaseCurrentBoxScore();
                 ballRigid.velocity = Vector3.zero;
-                ballRigid.AddForce(Vector3.down * jumpSpeed, ForceMode.Impulse);
+
             } else
             {
-                //gameOver();
-                ballRigid.velocity = Vector3.zero;
+                print("TOP YA YANLIS CARPTI YA HIC");
+                ballRigid.isKinematic = true;
+                GameManager.gameOver();
             }
         }
         

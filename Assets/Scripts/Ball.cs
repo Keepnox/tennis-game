@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ballColor.material.color = Color.red;
+        // ballColor.material.color = Color.red;
     }
 
     // Update is called once per frame
