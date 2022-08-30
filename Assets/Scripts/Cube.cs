@@ -9,7 +9,6 @@ public class Cube : MonoBehaviour
     private MeshRenderer cubeMesh;
     private MeshRenderer ballColor;
     private Rigidbody ballRigid;
-    public int jumpSpeed;
     
     // Start is called before the first frame update
     void Awake()
@@ -31,8 +30,9 @@ public class Cube : MonoBehaviour
         {
             if (ballColor.material.color == cubeMesh.material.color)
             {
-                GameManager.decreaseCurrentBoxScore();
                 ballRigid.velocity = Vector3.zero;
+                GameManager.decreaseCurrentBoxScore();
+                ballRigid.AddForce(Vector3.down * GameManager.GAMESPEED / 2, ForceMode.Impulse);
 
             } else
             {

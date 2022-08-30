@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -294,6 +294,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 100000, guid: 96f4356a25e065446a6e8c4500a99fa0, type: 3}
@@ -345,6 +346,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 96f4356a25e065446a6e8c4500a99fa0, type: 3}
 --- !u!1 &690685499
 GameObject:
@@ -474,7 +476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballRigid: {fileID: 690685500}
-  jumpSpeed: 15
   ballColor: {fileID: 690685502}
   cubeController: {fileID: 3210820421687171870, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
 --- !u!1 &705507993
@@ -648,6 +649,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -948,12 +950,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874ff95d0267b4e679620e56b8128461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 3210820421687171870, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
+  cubePrefab: {fileID: 3210820421687171869, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
+  cubeColor: {fileID: 0}
+  cubeList:
+  - {fileID: 3210820421687171869, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
+  - {fileID: 3210820421687171869, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
+  - {fileID: 3210820421687171869, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
+  - {fileID: 3210820421687171869, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
+  - {fileID: 3210820421687171869, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
 --- !u!1001 &3460885976076504265
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 982872887960713533, guid: 7f3106123a8ba48c2af61667c056808c, type: 3}
@@ -1126,4 +1136,5 @@ PrefabInstance:
     - {fileID: 3460885976065233143, guid: 7f3106123a8ba48c2af61667c056808c, type: 3}
     - {fileID: 701051613486290443, guid: 7f3106123a8ba48c2af61667c056808c, type: 3}
     - {fileID: 3252363410667776092, guid: 7f3106123a8ba48c2af61667c056808c, type: 3}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f3106123a8ba48c2af61667c056808c, type: 3}

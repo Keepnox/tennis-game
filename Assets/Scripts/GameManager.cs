@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static GameState State;
     public static int currentBoxScore;
-
+    public static int GAMESPEED = 15;
     void Start()
     {
         Instance = this;

@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
 {
 
     public Rigidbody ballRigid;
-    public float jumpSpeed;
+
     public MeshRenderer ballColor;
     public GameObject cubeController;
     // Start is called before the first frame update
@@ -28,13 +28,13 @@ public class Ball : MonoBehaviour
         if (other.tag.ToString() == "RaketRed")
         {
             ballRigid.velocity = Vector3.zero;
-            ballRigid.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            ballRigid.AddForce(Vector3.up * GameManager.GAMESPEED, ForceMode.Impulse);
             ballColor.material.color = Color.red;
         }
         if (other.tag.ToString() == "RaketBlue")
         {
             ballRigid.velocity = Vector3.zero;
-            ballRigid.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            ballRigid.AddForce(Vector3.up * GameManager.GAMESPEED, ForceMode.Impulse);
             ballColor.material.color = Color.blue;
         }
         
