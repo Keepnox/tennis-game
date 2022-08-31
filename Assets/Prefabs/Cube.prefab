@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3210820421841781394}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3210820421687171871
 BoxCollider:
@@ -45,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.403942, y: 1.323951, z: 0.14109826}
-  m_Center: {x: -0.03791094, y: -0.1619755, z: -0.005675912}
+  m_Size: {x: 5.403942, y: 1.0189688, z: 0.14109826}
+  m_Center: {x: -0.03791094, y: -0.00948441, z: -0.005675912}
 --- !u!114 &3210820421687171869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,11 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6ff078e663a478cb58e5480fb27d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPower: 0
-  cubeMesh: {fileID: 3210820421841781395}
-  ballColor: {fileID: 0}
-  ballRigid: {fileID: 0}
-  jumpSpeed: 15
 --- !u!1 &3210820421841781397
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +90,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3210820421687171868}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3210820421841781392
 MeshFilter:

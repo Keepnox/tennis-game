@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public static GameState State;
-    public static int currentBoxScore;
-    public static int GAMESPEED = 15;
+    public int currentBoxScore;
+    public static int GAMESPEED = 25;
     void Start()
     {
         Instance = this;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     {
         State = GameState.GameOver;
     }
-    public static void decreaseCurrentBoxScore()
+    public void decreaseCurrentBoxScore()
     {
         
         if (currentBoxScore > 0)

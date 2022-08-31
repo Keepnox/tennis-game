@@ -8,20 +8,21 @@ public class CubeSpawner : MonoBehaviour
     public Cube cubePrefab;
     private GameObject generatedCube;
     public MeshRenderer cubeColor;
-    public Cube[] cubeList;
+    private List<Cube> cubeList = new List<Cube>();
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        for (var i = 0; i < cubeList.Length; i++)
+     
+        for (var i = 0; i < 5; i++)
         {
-            Cube generatedCube = Instantiate(cubeList[i], new Vector3(-0.44f, 1.8f + i, -2.616f), Quaternion.identity, transform);
+            Cube generatedCube = Instantiate(cubePrefab, new Vector3(-0.44f, 1.8f + i + (i*0.1f), -2.616f), Quaternion.identity, transform);
             int selectColor = Random.Range(0, 2);
             generatedCube.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = selectColor == 0 ? Color.red : Color.blue;
+            cubeList.Add(generatedCube);
         }
 
-        ((IList)cubeList).Add(cubePrefab);
     }
 
     // Update is called once per frame
@@ -33,10 +34,11 @@ public class CubeSpawner : MonoBehaviour
 
     void GenerateCube()
     {
-        if (GameManager.currentBoxScore == 0)
+        if (GameManager.Instance.currentBoxScore == 0)
         {
-            cubeList.Add(cubeMesh);
-            GameManager.currentBoxScore = Random.Range(1, 4);
+            DestroyImmediate(cubeList[0].gameObject, true);
+            cubeList.Remove(cubeList[0]);
+            GameManager.Instance.currentBoxScore = Random.Range(1, 4);
         }
     }
 }

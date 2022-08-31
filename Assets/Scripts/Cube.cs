@@ -24,16 +24,15 @@ public class Cube : MonoBehaviour
 
     
     
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag.ToString() == "Ball")
+        if (other.gameObject.tag.ToString() == "Ball")
         {
             if (ballColor.material.color == cubeMesh.material.color)
             {
                 ballRigid.velocity = Vector3.zero;
-                GameManager.decreaseCurrentBoxScore();
+                GameManager.Instance.decreaseCurrentBoxScore();
                 ballRigid.AddForce(Vector3.down * GameManager.GAMESPEED / 2, ForceMode.Impulse);
-
             } else
             {
                 print("TOP YA YANLIS CARPTI YA HIC");
@@ -41,8 +40,5 @@ public class Cube : MonoBehaviour
                 GameManager.gameOver();
             }
         }
-        
-
-
     }
 }

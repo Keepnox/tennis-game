@@ -22,16 +22,19 @@ public class Ball : MonoBehaviour
             
     }
     
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnCollisionEnter(Collision other)
+    {   
+        print("SELAM");
+        print(other.gameObject.tag.ToString() + "SELAAAM");
+
         
-        if (other.tag.ToString() == "RaketRed")
+        if (other.gameObject.tag.ToString() == "RaketRed")
         {
             ballRigid.velocity = Vector3.zero;
             ballRigid.AddForce(Vector3.up * GameManager.GAMESPEED, ForceMode.Impulse);
             ballColor.material.color = Color.red;
         }
-        if (other.tag.ToString() == "RaketBlue")
+        if (other.gameObject.tag.ToString() == "RaketBlue")
         {
             ballRigid.velocity = Vector3.zero;
             ballRigid.AddForce(Vector3.up * GameManager.GAMESPEED, ForceMode.Impulse);

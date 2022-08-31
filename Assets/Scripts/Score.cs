@@ -17,6 +17,6 @@ public class Score : MonoBehaviour
     void Update()
     {
 
-        textim.text = GameManager.currentBoxScore.ToString();
+        textim.text = GameManager.Instance.currentBoxScore.ToString();
     }
 }
