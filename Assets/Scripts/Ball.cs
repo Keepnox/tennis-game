@@ -26,20 +26,27 @@ public class Ball : MonoBehaviour
     {   
         print("SELAM");
         print(other.gameObject.tag.ToString() + "SELAAAM");
-
+        if (other.gameObject.CompareTag("Raket"))
+        {
+            if (GameManager.Instance.isRaketRed)
+            {
+                GameManager.Instance.isBallRed = true;
+                ballRigid.velocity = Vector3.zero;
+                ballRigid.AddForce(Vector3.up * GameManager.Instance.GAMESPEED, ForceMode.Impulse);
+                ballColor.material.color = Color.red;
+            }
+            else
+            {
+                GameManager.Instance.isBallRed = false;
+                ballRigid.velocity = Vector3.zero;
+                ballRigid.AddForce(Vector3.up * GameManager.Instance.GAMESPEED, ForceMode.Impulse);
+                ballColor.material.color = Color.blue;    
+            }
+        }
         
-        if (other.gameObject.tag.ToString() == "RaketRed")
-        {
-            ballRigid.velocity = Vector3.zero;
-            ballRigid.AddForce(Vector3.up * GameManager.GAMESPEED, ForceMode.Impulse);
-            ballColor.material.color = Color.red;
-        }
-        if (other.gameObject.tag.ToString() == "RaketBlue")
-        {
-            ballRigid.velocity = Vector3.zero;
-            ballRigid.AddForce(Vector3.up * GameManager.GAMESPEED, ForceMode.Impulse);
-            ballColor.material.color = Color.blue;
-        }
+        
+        
+        
         
         
 

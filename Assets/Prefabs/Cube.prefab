@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6ff078e663a478cb58e5480fb27d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeMesh: {fileID: 3210820421841781395}
 --- !u!1 &3210820421841781397
 GameObject:
   m_ObjectHideFlags: 0

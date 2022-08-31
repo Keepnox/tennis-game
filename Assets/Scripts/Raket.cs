@@ -22,9 +22,12 @@ public class Raket : MonoBehaviour
 
     private void FingerGestures_OnFingerDown(int fingerindex, Vector2 fingerpos)
     {
-        if (raket.transform.eulerAngles.z != 0)
+        GameManager.Instance.isRaketRed = !GameManager.Instance.isRaketRed;
+
+        if (GameManager.Instance.isRaketRed) 
         {
             raket.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
+            
         }
         else
         {
