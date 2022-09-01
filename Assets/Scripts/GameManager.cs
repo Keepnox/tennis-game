@@ -57,14 +57,13 @@ public class GameManager : MonoBehaviour
         spawnerTransformController = spawnerTransform;
         for (int i = 0; i < 5; i++)
         {
-            newCubePosition = 1.8f + i + (i * 0.1f);
+            newCubePosition = 2.78999996f + i + (i * 0.1f);
             OneCubeSpawn(spawnerTransform, newCubePosition);
         }
     }
-
     private void OneCubeSpawn(Transform spawnerTransform, float ncb)
     {
-        Cube generatedCube = Instantiate(cubePrefab, new Vector3(-0.44f, ncb, -2.616f),
+        Cube generatedCube = Instantiate(cubePrefab, new Vector3(-1.88f, ncb, -2.582468f),
             Quaternion.identity, spawnerTransform);
         int selectColor = Random.Range(0, 2);
         generatedCube.transform.GetChild(0).GetComponent<MeshRenderer>().material.color =
