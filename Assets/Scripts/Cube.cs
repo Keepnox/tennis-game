@@ -18,10 +18,8 @@ public class Cube : MonoBehaviour
     {
         print("NEW CUBE INSTIANTE");
         ballRigid = GameObject.Find("Ball").GetComponent<Rigidbody>(); 
-        // cubeMesh = GameObject.Find("CubeMesh").GetComponent<MeshRenderer>();
         ballColor = GameObject.Find("Ball").GetComponent<MeshRenderer>();
         selectColor = Random.Range(0, 1);
-        ballColor.material.color = Color.red;
         cubeMesh.material.color = selectColor == 0 ? Color.red : Color.blue;
     }
 
@@ -37,13 +35,13 @@ public class Cube : MonoBehaviour
         {
             if (ballColor.material.color == cubeMesh.material.color)
             {
-         
+                print("TOP RENGI: " + ballColor.material.color );
+                print("KUP RENGI: " + cubeMesh.material.color );
                 ballRigid.velocity = Vector3.zero;
                 GameManager.Instance.decreaseCurrentBoxScore();
                 ballRigid.AddForce(Vector3.down * GameManager.Instance.GAMESPEED / 2, ForceMode.Impulse);
                 if (GameManager.Instance.currentBoxScore == 0)
                 {
-         
                     GameManager.Instance.DestroyAndSpawnCube(this);
                 }
             } else
