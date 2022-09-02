@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2441c79940171dc43b33badf9fe97828, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5464c15ff9c6ca04cb5790c1773e76fa, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.7179409, g: 0.47382277, b: 0.4238807, a: 1}
+  m_IndirectSpecularColor: {r: 0.47328264, g: 0.55297256, b: 0.654542, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,10 +220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentBoxScore: 0
-  GAMESPEED: 15
+  GAMESPEED: 25
   timeSpeed: 1
   isRaketRed: 1
   isBallRed: 1
+  currentCubeIsRed: 1
   cubeList: []
   cubePrefab: {fileID: 3210820421687171869, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
   spawnerTransformController: {fileID: 0}
@@ -411,7 +412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690685499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.39999998, y: -0.2, z: -2.5824676}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,6 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballRigid: {fileID: 690685500}
+  isTopRed: 0
   ballColor: {fileID: 690685502}
   cubeController: {fileID: 3210820421687171870, guid: b8decf508a5734c42b1a96d27270954d, type: 3}
 --- !u!1 &705507993
@@ -853,14 +855,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.10778962, y: -0.002982521, z: 0.0003233682, w: 0.9941692}
-  m_LocalPosition: {x: -0.3987257, y: 2.2834027, z: -9.350568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.239, y: -1.859, z: -0.39}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648376361
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,15 +921,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3460885976406814794, guid: f068a8b617bfacb4a97387bec025de5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.40007222
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3460885976406814794, guid: f068a8b617bfacb4a97387bec025de5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.409999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3460885976406814794, guid: f068a8b617bfacb4a97387bec025de5f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.5824676
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3460885976406814794, guid: f068a8b617bfacb4a97387bec025de5f, type: 3}
       propertyPath: m_LocalRotation.w

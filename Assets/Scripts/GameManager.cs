@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using Random = UnityEngine.Random; 
 
 public class GameManager : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class GameManager : MonoBehaviour
     public float timeSpeed = 1;
     public bool isRaketRed = true;
     public bool isBallRed = true;
+    public bool currentCubeIsRed = true;
     public List<Cube> cubeList = new List<Cube>();
     public Cube cubePrefab;
     public Transform spawnerTransformController;
     public GameObject generatedCube;
+    private float cubeXPos = 0f;
 
     public float newCubePosition;
     // public MeshRenderer cubeColor;
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Time.timeScale = timeSpeed;
+        
     }
 
     
@@ -57,17 +61,15 @@ public class GameManager : MonoBehaviour
         spawnerTransformController = spawnerTransform;
         for (int i = 0; i < 5; i++)
         {
-            newCubePosition = 2.78999996f + i + (i * 0.1f);
+            newCubePosition = 6.5f + i + (i * 0.007f);
             OneCubeSpawn(spawnerTransform, newCubePosition);
         }
     }
     private void OneCubeSpawn(Transform spawnerTransform, float ncb)
     {
-        Cube generatedCube = Instantiate(cubePrefab, new Vector3(-1.88f, ncb, -2.582468f),
+        Cube generatedCube = Instantiate(cubePrefab, new Vector3(cubeXPos, ncb, 0),
             Quaternion.identity, spawnerTransform);
-        int selectColor = Random.Range(0, 2);
-        generatedCube.transform.GetChild(0).GetComponent<MeshRenderer>().material.color =
-            selectColor == 0 ? Color.red : Color.blue;
+
         cubeList.Add(generatedCube);
     }
 
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
             foreach (Cube cubes in cubeList)
             {
                 cubes.gameObject.transform.DOMove(
-                    new Vector3(-0.44f, cubes.gameObject.transform.position.y - 1.1f, -2.616f), 0.5f);
+                    new Vector3(cubeXPos, cubes.gameObject.transform.position.y - 1.1f, 0f), 0.5f);
                  
             }
 

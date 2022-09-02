@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
 {
 
     public Rigidbody ballRigid;
-
+    public bool isTopRed;
     public MeshRenderer ballColor;
     public GameObject cubeController;
     // Start is called before the first frame update
@@ -23,13 +23,12 @@ public class Ball : MonoBehaviour
     }
     
     private void OnCollisionEnter(Collision other)
-    {   
-        print("SELAM");
-        print(other.gameObject.tag.ToString() + "SELAAAM");
+    {
         if (other.gameObject.CompareTag("Raket"))
         {
             if (GameManager.Instance.isRaketRed)
             {
+                isTopRed = true;
                 GameManager.Instance.isBallRed = true;
                 ballRigid.velocity = Vector3.zero;
                 ballRigid.AddForce(Vector3.up * GameManager.Instance.GAMESPEED, ForceMode.Impulse);
@@ -37,6 +36,7 @@ public class Ball : MonoBehaviour
             }
             else
             {
+                isTopRed = false;
                 GameManager.Instance.isBallRed = false;
                 ballRigid.velocity = Vector3.zero;
                 ballRigid.AddForce(Vector3.up * GameManager.Instance.GAMESPEED, ForceMode.Impulse);

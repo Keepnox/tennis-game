@@ -12,7 +12,7 @@ public class Raket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(raket.transform.position);
+        // Debug.Log(raket.transform.position);
     }
 
     private void OnEnable()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,19 +9,20 @@ using Random = UnityEngine.Random;
 
 public class Cube : MonoBehaviour
 {
-    private int selectColor;
     public MeshRenderer cubeMesh;
     private MeshRenderer ballColor;
     private Rigidbody ballRigid;
-
+    public Material[] materials;
+    private bool selectColor;
+    
     // Start is called before the first frame update
     void Awake()
     {
-        print("NEW CUBE INSTIANTE");
         ballRigid = GameObject.Find("Ball").GetComponent<Rigidbody>(); 
         ballColor = GameObject.Find("Ball").GetComponent<MeshRenderer>();
-        selectColor = Random.Range(0, 1);
-        cubeMesh.material.color = selectColor == 0 ? Color.red : Color.blue;
+        selectColor = Random.value < 0.5f;
+        cubeMesh.material = selectColor ? materials[0] : materials[1];
+
     }
 
     private void OnDestroy()
@@ -33,11 +35,13 @@ public class Cube : MonoBehaviour
     {
         if (other.gameObject.tag.ToString() == "Ball")
         {
-            if (ballColor.material.color == cubeMesh.material.color)
+            cubeMesh.material.SetFloat("_Glossiness", 0.6f);
+            GameManager.Instance.currentCubeIsRed = selectColor;       
+            if (other.gameObject.GetComponent<Ball>().isTopRed == selectColor) 
             {
-                print("TOP RENGI: " + ballColor.material.color );
-                print("KUP RENGI: " + cubeMesh.material.color );
                 ballRigid.velocity = Vector3.zero;
+                float effect = 0.6f;
+                DOTween.To( () => effect, ( _effect ) => effect = _effect, 0f, 0.7f ).OnUpdate(() =>cubeMesh.material.SetFloat("_Glossiness", effect));
                 GameManager.Instance.decreaseCurrentBoxScore();
                 ballRigid.AddForce(Vector3.down * GameManager.Instance.GAMESPEED / 2, ForceMode.Impulse);
                 if (GameManager.Instance.currentBoxScore == 0)
