@@ -13,10 +13,11 @@ public class Score : MonoBehaviour
         textim = GetComponent<TextMeshProUGUI>();
     }
 
+    
     // Update is called once per frame
-    void Update()
-    {
-
-        textim.text = GameManager.Instance.currentBoxScore.ToString();
-    }
+    // void Update()
+    // {
+    //
+    //     textim.text = GameManager.Instance.currentBoxScore.ToString();
+    // }
 }

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static GameState State;
     public int currentBoxScore;
-    public int GAMESPEED = 25;
+    public float GAMESPEED = 25;
     public float timeSpeed = 1;
     public bool isRaketRed = true;
     public bool isBallRed = true;
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Transform spawnerTransformController;
     public GameObject generatedCube;
     private float cubeXPos = 0f;
+    private float gameTime = 0f;
 
     public float newCubePosition;
     // public MeshRenderer cubeColor;
@@ -29,13 +30,18 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         currentBoxScore = Random.Range(1, 4);
+        gameTime = Time.time;
     }
 
     
     private void Update()
     {
         Time.timeScale = timeSpeed;
-        
+        if (Time.time > gameTime)
+        {
+            gameTime = Time.time + 1;
+            GAMESPEED += (gameTime * .07f);
+        }
     }
 
     
